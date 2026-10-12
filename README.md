@@ -35,6 +35,8 @@ Restart the desktop backend / gateway if it was already running so it loads the 
 - Hook: `on_session_start` only. No tools, no middleware, no environment variables, no network.
 - Reads the new session's row from the local session database and calls
   `SessionDB.set_session_pinned(session_id, True)` -- the same setter the sidebar pin button uses.
+  The shared database handle comes from `hermes_state_registry.acquire()` / `release()`, which is not
+  a documented plugin API yet (`hermes plugins validate` reports it as a warning, not a failure).
 - Writes one short line per pinned session to `<hermes home>/auto-pin/ledger.txt`.
 - Any failure is logged and swallowed; the session simply stays unpinned.
 
