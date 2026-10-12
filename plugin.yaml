@@ -1,0 +1,7 @@
+name: auto-pin
+version: 1.0.0
+description: "Automatically pin every new interactive session (desktop, CLI, TUI). Cron, one-shot, subagent and messaging sessions are left alone, and unpinning a session sticks."
+author: bmcfiv
+requires_hermes: ">=0.21.0"
+provides_hooks:
+  - on_session_start
